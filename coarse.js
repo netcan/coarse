@@ -2,7 +2,6 @@
 
 const fs = require('fs')
 const coarse = require('coarse')
-const xmlserializer = require('xmlserializer')
 const parser = require('parse5')
 const { convertDocumentForeignObjectsToText } = require('./convert')
 
@@ -18,6 +17,6 @@ const roughened = coarse(original, {
 )
 const parsed = parser.parse(roughened)
 const converted = convertDocumentForeignObjectsToText(parsed)
-const serialized = xmlserializer.serializeToString(converted)
+const serialized = parser.serialize(converted.parentNode)
 
 fs.writeFileSync(outputFile, serialized)

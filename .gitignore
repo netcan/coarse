@@ -1,4 +1,6 @@
 *~
+*.out
+output.svg
 package-lock.json
 node_modules
 output-*.*
